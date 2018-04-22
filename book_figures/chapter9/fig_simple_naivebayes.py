@@ -62,6 +62,7 @@ Z = Z[:, 1].reshape(xx.shape)
 # Plot the results
 fig = plt.figure(figsize=(5, 3.75))
 ax = fig.add_subplot(111)
+print(len(X[:, 0]), np.shape(X))
 ax.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.binary, zorder=2)
 
 ax.contour(xx, yy, Z, [0.5], colors='k')

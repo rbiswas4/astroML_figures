@@ -21,8 +21,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import colors
 
-from sklearn.qda import QDA
 
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis as QDA
 from astroML.datasets import fetch_rrlyrae_combined
 from astroML.utils import split_samples
 from astroML.utils import completeness_contamination

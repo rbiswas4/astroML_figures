@@ -55,7 +55,7 @@ predictions = []
 Ncolors = np.arange(1, X.shape[1] + 1)
 
 for nc in Ncolors:
-    clf = LogisticRegression(class_weight='auto')
+    clf = LogisticRegression(class_weight='balanced')
     clf.fit(X_train[:, :nc], y_train)
     y_pred = clf.predict(X_test[:, :nc])
 
@@ -77,7 +77,7 @@ xx, yy = np.meshgrid(np.linspace(xlim[0], xlim[1], 71),
                      np.linspace(ylim[0], ylim[1], 81))
 
 print(clf.intercept_)
-print(clf.raw_coef_)
+print(clf.coef_)
 
 Z = clf.predict_proba(np.c_[yy.ravel(), xx.ravel()])[:, 1]
 Z = Z.reshape(xx.shape)

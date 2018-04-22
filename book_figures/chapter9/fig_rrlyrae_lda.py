@@ -21,7 +21,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import colors
 
-from sklearn.lda import LDA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 
 from astroML.datasets import fetch_rrlyrae_combined
 from astroML.utils import split_samples

@@ -66,7 +66,7 @@ def compute_SVM(Ncolors):
 
     for nc in Ncolors:
         # perform support vector classification
-        clf = SVC(kernel='linear', class_weight='auto')
+        clf = SVC(kernel='linear', class_weight='balanced')
         clf.fit(X_train[:, :nc], y_train)
         y_pred = clf.predict(X_test[:, :nc])
 
@@ -78,6 +78,9 @@ def compute_SVM(Ncolors):
 classifiers, predictions = compute_SVM(Ncolors)
 
 completeness, contamination = completeness_contamination(predictions, y_test)
+
+print('new code')
+print(len(predictions), len(y_test))
 
 print("completeness", completeness)
 print("contamination", contamination)
