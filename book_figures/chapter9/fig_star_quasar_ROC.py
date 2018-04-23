@@ -108,7 +108,8 @@ names, probs = compute_results((GaussianNB, {}),
                                      criterion='entropy')),
                                (GMMBayes, dict(n_components=3, min_covar=1E-5,
                                                covariance_type='full')))
-
+print(names)
+print(probs)
 #------------------------------------------------------------
 # Plot results
 fig = plt.figure(figsize=(5, 2.5))
@@ -126,13 +127,12 @@ ax1.set_xlabel('$u - g$')
 ax1.set_ylabel('$g - r$')
 
 labels = dict(GaussianNB='GNB',
-              LDA='LDA',
-              QDA='QDA',
               KNeighborsClassifier='KNN',
               DecisionTreeClassifier='DT',
               GMMBayes='GMMB',
               LogisticRegression='LR')
-
+labels[LDA.__name__] = 'LDA',
+labels[QDA.__name__] = 'QDA',
 # Second axis shows the ROC curves
 ax2 = fig.add_subplot(122)
 for name, y_prob in zip(names, probs):
